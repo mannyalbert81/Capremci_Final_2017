@@ -6,7 +6,7 @@
 <?php //echo json_encode($resultCli);?>
      
         <meta charset="utf-8"/>
-        <title>Busqueda de Documentos - aDocument 2015</title>
+        <title>Búsqueda de Documentos - aDocument 2015</title>
    
   		
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -470,7 +470,7 @@
 		  <div class="panel-heading"> <strong style="color:#ec971f;"> BUSQUEDA DE DOCUMENTOS </strong>  </div>
 		  <div class="panel-body">
 		    <?php if ($resultEdit !="" ) { foreach($resultEdit as $resEdit) {?>
-		  	  <p   class="bg-danger" style="text-align: center;" ><strong>ESTAMOS EDITANDO </strong> Los cambios realizados seran guardados en el registro : <strong>   <?php echo $resEdit->id_documentos_legal ?>  </strong> </p>
+		  	  <p   class="bg-danger" style="text-align: center;" ><strong>ESTAMOS EDITANDO </strong> Los cambios realizados serán guardados en el registro : <strong>   <?php echo $resEdit->id_documentos_legal ?>  </strong> </p>
 		  	  <input  type="hidden" id="id_documentos_legal" name="id_documentos_legal" value= "<?php echo $resEdit->id_documentos_legal ?>" > 
   	        <?php } }?>
   	      
@@ -482,8 +482,8 @@
        	<table class="col-sm-12">     	
             	
             <tr>
-	    		<th class="col-sm-1">Nombre Categoria</th>
-	    		<th class="col-sm-1">Nombre SubCategoria</th>
+	    		<th class="col-sm-1">Nombre Categoría</th>
+	    		<th class="col-sm-1">Nombre SubCategoría</th>
 	    		<th class="col-sm-1">Año</th>
 	    		<th class="col-sm-1">Ruc Cliente/Proveedor</th>
 	    		<th class="col-sm-1">Nombre Cliente/Proveedor</th>

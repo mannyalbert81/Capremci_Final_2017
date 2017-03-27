@@ -6,7 +6,7 @@
 <?php require_once 'config/global.php';?> 
     
         <meta charset="utf-8"/>
-        <title>Busqueda - aDocument 2015</title>
+        <title>Búsqueda - aDocument 2015</title>
    
        <style>
             input{
@@ -102,12 +102,12 @@
 						<tr class="info">
 							<th>Id</th>
 							<th>Fecha del Documento</th>
-							<th>Categoria</th>
-							<th>Subcategoria</th>
+							<th>Categorpia</th>
+							<th>Subcategoría</th>
 							<th>Tipo Documentos</th>
 							<th>Cliente/Proveedor</th>
 							<th>Carton Documentos</th>
-							<th>Numero</th>
+							<th>Número</th>
 							<th>Monto Documento</th>
 							<th>Valor Documento</th>
 							<th>Fecha de Subida</th>

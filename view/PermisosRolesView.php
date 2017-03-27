@@ -126,6 +126,22 @@
        
        <?php include("view/modulos/menu.php"); ?>
   
+  
+  <?php
+       $sel_menu = "";
+       
+    
+       if($_SERVER['REQUEST_METHOD']=='POST' )
+       {
+       	 
+       	 
+       	$sel_menu=$_POST['criterio'];
+       	
+       	 
+       }
+      
+	 	?>
+		
     
        <div class="container">
       <div class="row" style="background-color: #FAFAFA;">
@@ -240,7 +256,33 @@
        
         <div class="col-lg-7">
             <h4 style="color:#ec971f;">Permisos Rol</h4>
+            <form action="<?php echo $helper->url("PermisosRoles","index"); ?>" method="post" enctype="multipart/form-data"  class="col-lg-12">
+           
+           <div class="col-lg-4">
+           <input type="text"  name="contenido" id="contenido" value="" class="form-control"/>
+           <div id="mensaje_contenido" class="errores"></div>
+            </div>
             
+           <div class="col-lg-4">
+           <select name="criterio" id="criterio"  class="form-control">
+                                    <?php foreach($resultMenu as $val=>$desc) {?>
+                                         <option value="<?php echo $val ?>" <?php if ($sel_menu == $val ) { echo "selected";}?>><?php echo $desc; ?> </option>
+                                    <?php } ?>
+									
+									
+                                        
+           </select>
+           <div id="mensaje_criterio" class="errores"></div>
+           </div>
+          
+           
+          
+           <div class="col-lg-2">
+           <input type="submit" id="Buscar" name="Buscar" value="Buscar" class="btn btn-default"/>
+           </div>
+           
+         
+          </form>
         </div>
         <section class="col-lg-7 usuario" style="height:400px;overflow-y:scroll;">
         <table class="table table-hover">
@@ -262,9 +304,9 @@
 		               <td style="color:#000000;font-size:80%;"> <?php echo $res->nombre_permisos_rol; ?>     </td>
 		               <td style="color:#000000;font-size:80%;"> <?php echo $res->nombre_rol; ?>     </td> 
 		               <td style="color:#000000;font-size:80%;"> <?php echo $res->nombre_controladores; ?>  </td>
-		               <td style="color:#000000;font-size:80%;"> <?php echo $res->ver_permisos_rol; ?>     </td>
-		               <td style="color:#000000;font-size:80%;"> <?php echo $res->editar_permisos_rol; ?>     </td>
-		               <td style="color:#000000;font-size:80%;"> <?php echo $res->borrar_permisos_rol; ?>     </td>
+		               <td style="color:#000000;font-size:80%;"> <?php if ($res->ver_permisos_rol =="t"){ echo "Si";}else{echo "No";}; ?>     </td>
+		               <td style="color:#000000;font-size:80%;"> <?php if ($res->editar_permisos_rol == "t"){ echo "Si";}else{echo "No";}; ?>     </td>
+		               <td style="color:#000000;font-size:80%;"> <?php if ($res->borrar_permisos_rol == "t"){ echo "Si";}else{echo "No";}; ?>     </td>
 		           	   <td>
 			           		<div class="right">
 			                    <a href="<?php echo $helper->url("PermisosRoles","index"); ?>&id_permisos_rol=<?php echo $res->id_permisos_rol; ?>" class="btn btn-warning" style="font-size:65%;"><i class='glyphicon glyphicon-edit'></i></a>

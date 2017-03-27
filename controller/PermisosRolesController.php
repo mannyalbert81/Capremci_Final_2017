@@ -21,7 +21,19 @@ class PermisosRolesController extends ControladorBase{
 			$nombre_controladores = "PermisosRoles";
 			$id_rol= $_SESSION['id_rol'];
 			$resultPer = $permisos_rol->getPermisosVer("   controladores.nombre_controladores = '$nombre_controladores' AND permisos_rol.id_rol = '$id_rol' " );
-				
+			
+
+                    $columnas = "permisos_rol.id_permisos_rol, rol.nombre_rol, permisos_rol.nombre_permisos_rol, controladores.nombre_controladores, permisos_rol.ver_permisos_rol, permisos_rol.editar_permisos_rol, permisos_rol.borrar_permisos_rol  ";
+					$tablas   = "public.controladores,  public.permisos_rol, public.rol";
+					$where    = " controladores.id_controladores = permisos_rol.id_controladores AND permisos_rol.id_rol = rol.id_rol";
+					$id       = " permisos_rol.nombre_permisos_rol, controladores.nombre_controladores";
+						
+					$permisos_rol = new PermisosRolesModel();
+					$resultSet=$permisos_rol->getCondiciones($columnas ,$tablas ,$where, $id);
+					
+			$resultMenu=array(0=>'--Todos--',1=>' Nombre Rol', 2=>'Nombre Controlador', 3=>'Nombre Permisos Rol');
+					
+			
 			if (!empty($resultPer))
 			{
 					
@@ -70,17 +82,78 @@ class PermisosRolesController extends ControladorBase{
 					}
 			
 					
+					
+					if (isset ($_POST["criterio"])  && isset ($_POST["contenido"])  )
+				{
+					
 					$columnas = "permisos_rol.id_permisos_rol, rol.nombre_rol, permisos_rol.nombre_permisos_rol, controladores.nombre_controladores, permisos_rol.ver_permisos_rol, permisos_rol.editar_permisos_rol, permisos_rol.borrar_permisos_rol  ";
 					$tablas   = "public.controladores,  public.permisos_rol, public.rol";
 					$where    = " controladores.id_controladores = permisos_rol.id_controladores AND permisos_rol.id_rol = rol.id_rol";
 					$id       = " permisos_rol.nombre_permisos_rol, controladores.nombre_controladores";
+					
+
+					$criterio = $_POST["criterio"];
+					$contenido = $_POST["contenido"];
 						
-					$permisos_rol = new PermisosRolesModel();
-					$resultSet=$permisos_rol->getCondiciones($columnas ,$tablas ,$where, $id);
+					
+					//$resultSet=$usuarios->getCondiciones($columnas ,$tablas ,$where, $id);
+						
+					if ($contenido !="")
+					{
+							
+						$where_0 = "";
+						$where_1 = "";
+						$where_2 = "";
+						$where_3 = "";
+						
+						
+							
+						switch ($criterio) {
+							case 0:
+								$where_0 = " ";
+								break;
+							case 1:
+								//Ruc Cliente/Proveedor
+								$where_1 = " AND  rol.nombre_rol LIKE '$contenido'  ";
+								break;
+							case 2:
+								//Nombre Cliente/Proveedor
+								$where_2 = " AND controladores.nombre_controladores LIKE '$contenido'  ";
+								break;
+							case 3:
+								//Número Carton
+								$where_3 = " AND permisos_rol.nombre_permisos_rol LIKE '$contenido' ";
+								break;
+							
+							
+						}
+							
+							
+							
+						$where_to  = $where .  $where_0 . $where_1 . $where_2 . $where_3 ;
+							
+							
+						$resul = $where_to;
+						
+						//Conseguimos todos los usuarios con filtros
+						$resultSet=$permisos_rol->getCondiciones($columnas ,$tablas ,$where_to, $id);
+							
+							
+							
+							
+					}
+				}
+					
+					
+					
+					
+					
+					
+					
 					
 					
 					$this->view("PermisosRoles",array(
-							"resultCon"=>$resultCon, "resultAcc"=>$resultAcc, "resultSet"=>$resultSet,  "resultEdit"=>$resultEdit, "resultRol"=>$resultRol
+							"resultCon"=>$resultCon, "resultAcc"=>$resultAcc, "resultSet"=>$resultSet,  "resultEdit"=>$resultEdit, "resultRol"=>$resultRol, "resultMenu"=>$resultMenu
 					));
 			
 			

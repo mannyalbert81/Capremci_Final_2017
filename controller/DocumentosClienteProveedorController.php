@@ -446,7 +446,7 @@ class DocumentosClienteProveedorController extends ControladorBase{
 	
 						if ($cantidadResult>0)
 						{
-	
+						
 							//<th style="color:#456789;font-size:80%;"></th>
 							$html.='<div class="pull-left col-lg-2 col-md-2 col-xs-2"   style="vertical-align:midde">';
 							$html.='<span class="form-control"><strong>Registros: </strong>'.$cantidadResult.'</span>';
@@ -468,8 +468,15 @@ class DocumentosClienteProveedorController extends ControladorBase{
 							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Valor Documento</th>';
 							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Fecha de Subida</th>';
 							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Visualizar</th>';
-							
 						
+							$html.='</tr>';
+							$html.='</thead>';
+							$html.='<tbody style="display: block; height: calc(50vh - 1px); min-height: calc(200px + 1 px); overflow-Y: scroll";>';
+						
+						
+								
+								
+								
 							foreach ($resultSet as $res)
 							{
 								//<td style="color:#000000;font-size:80%;"> <?php echo ;</td>
@@ -480,25 +487,22 @@ class DocumentosClienteProveedorController extends ControladorBase{
 								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->nombre_subcategorias.'</td>';
 								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->nombre_tipo_documentos.'</td>';
 								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->nombre_cliente_proveedor.'</td>';
+								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->numero_carton_documentos.'</td>';
 								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->numero_credito_documentos_legal.'</td>';
 								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->monto_documentos_legal.'</td>';
 								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->valor_documentos_legal.'</td>';
 								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->creado.'</td>';
 								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">';
-								
-									
+						
 								if ($_SESSION["tipo_usuario"]=="usuario_local") {
-									$html.='<a href="'.IP_INT . $res->id_documentos_legal.'" class="btn btn-warning" target="blank">Ver</a>';
+									$html.='<a href="'.IP_INT . $res->id_documentos_legal.'" class="btn btn-warning" target="blank" style="font-size:90%;">Ver</a>';
 								} else {
-									$html.=' <a href="'.IP_EXT . $res->id_documentos_legal.'" class="btn btn-warning" target="blank">Ver</a>';
+									$html.=' <a href="'.IP_EXT . $res->id_documentos_legal.'" class="btn btn-warning" target="blank" style="font-size:90%;">Ver</a>';
 								}
-								$html.='</div></td>';
-								$html.='<td><div class="right">';
-								
-								$html.='</div></td>';
-	
+								$html.='</td>';
+								$html.='</tr>';
 							}
-	
+						
 							$html.='</tbody>';
 							$html.='</table>';
 							$html.='</section>';

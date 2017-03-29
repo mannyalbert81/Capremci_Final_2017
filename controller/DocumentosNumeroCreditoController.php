@@ -367,8 +367,6 @@ class DocumentosNumeroCreditoController extends ControladorBase{
 						{
 	
 							//<th style="color:#456789;font-size:80%;"></th>
-								
-	
 							$html.='<div class="pull-left col-lg-2 col-md-2 col-xs-2"   style="vertical-align:midde">';
 							$html.='<span class="form-control"><strong>Registros: </strong>'.$cantidadResult.'</span>';
 							$html.='<input type="hidden" value="'.$cantidadResult.'" id="total_query" name="total_query"/>' ;
@@ -401,11 +399,9 @@ class DocumentosNumeroCreditoController extends ControladorBase{
 							foreach ($resultSet as $res)
 							{
 								//<td style="color:#000000;font-size:80%;"> <?php echo ;</td>
-									
-	
-								$html.='<tr>';
-								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;" >'.$res->id_documentos_legal.'</td>';
-								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;" >'.$res->fecha_documentos_legal.'</td>';
+								$html.='<tr >';
+								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->id_documentos_legal.'</td>';
+								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->fecha_documentos_legal.'</td>';
 								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->nombre_categorias.'</td>';
 								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->nombre_subcategorias.'</td>';
 								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->nombre_tipo_documentos.'</td>';
@@ -416,9 +412,10 @@ class DocumentosNumeroCreditoController extends ControladorBase{
 								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->valor_documentos_legal.'</td>';
 								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->creado.'</td>';
 								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">';
+	
                                 if ($_SESSION["tipo_usuario"]=="usuario_local") {
 									$html.='<a href="'.IP_INT . $res->id_documentos_legal.'" class="btn btn-warning" target="blank" style="font-size:90%;">Ver</a>';
-								} else {
+                                }else {
 									$html.=' <a href="'.IP_EXT . $res->id_documentos_legal.'" class="btn btn-warning" target="blank" style="font-size:90%;">Ver</a>';
 								}
 								$html.='</td>';

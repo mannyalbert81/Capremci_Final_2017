@@ -1204,6 +1204,13 @@ class DocumentosController extends ControladorBase{
 					{
 						$where_10 = " AND documentos_legal.fecha_desde_documentos_legal > '$_fecha_poliza_desde' AND documentos_legal.fecha_desde_documentos_legal < '$_fecha_poliza_hasta'  ";
 					}
+					
+					if ($_year >0)
+					{
+							
+						$where_11 = "  AND TO_CHAR(documentos_legal.fecha_documentos_legal,'YYYY') = '$_year' ";
+					}
+						
 					if ($_id_soat > 0)
 					{
 							

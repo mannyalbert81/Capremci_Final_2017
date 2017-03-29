@@ -62,87 +62,57 @@ $controladores=$_SESSION['controladores'];
 			<a href="index.php?controller=PermisosRoles&action=index"><span class="glyphicon glyphicon-plus" aria-hidden="true"> Permisos Roles</span> </a>
             </li>
           
-		    <li style="<?php echo getcontrolador("RegistroCartonDocumentos",$controladores) ?>">
-		    <a href="index.php?controller=RegistroCartonDocumentos&action=index"><span class="glyphicon glyphicon-plus" aria-hidden="true"> Registro de Cartones</span></a>
-			</li>
 		
 	          
           </ul>
         </li>
-        <li class="dropdown">
+        <li class="dropdown" style="<?php echo getcontrolador("MenuDocumentos",$controladores) ?>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-file" ><?php echo " Gestión Documental" ;?> </span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-          <li style="<?php echo getcontrolador("Categorias",$controladores) ?>">
-          <a href="index.php?controller=Categorias&action=index">Categorías</a>
-		    </li>
-			<listyle="<?php echo getcontrolador("SubCategorias",$controladores) ?>">
-			<a href="index.php?controller=SubCategorias&action=index">Subcategorías</a>
-			</li>
-			<li style="<?php echo getcontrolador("TiposDocumentos",$controladores) ?>">
-			<a href="index.php?controller=TiposDocumentos&action=index">Tipos de Documentos</a>
-			</li>
-			<li style="<?php echo getcontrolador("CartonDocumentos",$controladores) ?>">
-			<a href="index.php?controller=CartonDocumentos&action=index">Cartones de Documentos</a>
-			</li>
-			<li style="<?php echo getcontrolador("ClienteProveedor",$controladores) ?>">
-			<a href="index.php?controller=ClienteProveedor&action=index">Clientes / Proveedores</a>
-			</li>
-			<li style="<?php echo getcontrolador("Soat",$controladores) ?>">
-			<a href="index.php?controller=Soat&action=index">SOAT</a>
-			</li>
-			<li role="separator" class="divider"></li>
+        
 			<li style="<?php echo getcontrolador("Documentos",$controladores) ?>">
-			<a href="index.php?controller=Documentos&action=index">Búsqueda de Documentos</a>
+			<a href="index.php?controller=Documentos&action=index"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Búsqueda de Documentos</span></a>
 			</li>
-			<li style="<?php echo getcontrolador("DocumentosClienteProveedor",$controladores) ?>">
-			<a href="index.php?controller=DocumentosClienteProveedor&action=index">Búsqueda Categorias + Cliente / Proveedor</a>
+			<li style="<?php echo getcontrolador("Documentos",$controladores) ?>">
+			<a href="index.php?controller=DocumentosClienteProveedor&action=index"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Búsqueda Categorias + Cliente / Proveedor</span></a>
 			</li>
-			<li style="<?php echo getcontrolador("DocumentosTipoDocumentos",$controladores) ?>">
-			<a href="index.php?controller=DocumentosTipoDocumentos&action=index">Búsqueda Categorias + Tipo Documentos</a>
+			<li style="<?php echo getcontrolador("Documentos",$controladores) ?>">
+			<a href="index.php?controller=DocumentosTipoDocumentos&action=index"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Búsqueda Categorias + Tipo Documentos</span></a>
 			</li>
-	        <li style="<?php echo getcontrolador("DocumentosCartonDocumentos",$controladores) ?>">
-	        <a href="index.php?controller=DocumentosCartonDocumentos&action=index">Búsqueda Categorias + Carton Documentos</a>
+	        <li style="<?php echo getcontrolador("Documentos",$controladores) ?>">
+	        <a href="index.php?controller=DocumentosCartonDocumentos&action=index"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Búsqueda Categorias + Carton Documentos</span></a>
 			</li>
-			<li style="<?php echo getcontrolador("DocumentosNumeroCredito",$controladores) ?>">
-			<a href="index.php?controller=DocumentosNumeroCredito&action=index">Búsqueda Categorias + Número de Credito</a>
+			<li style="<?php echo getcontrolador("Documentos",$controladores) ?>">
+			<a href="index.php?controller=DocumentosNumeroCredito&action=index"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Búsqueda Categorias + Número de Credito</span></a>
 			</li>
 			
 			
           </ul>
         </li>
-        <li class="dropdown">
+        <li class="dropdown" style="<?php echo getcontrolador("MenuInformes",$controladores) ?>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-print	" ><?php echo " Informes" ;?> </span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
         	<li style="<?php echo getcontrolador("Categorias",$controladores) ?>">
-        	<a href="index.php?controller=Categorias&action=ReporteTotal" target="blank">Documentos por Categorías</a>
+        	<a href="index.php?controller=Categorias&action=ReporteTotal" target="blank"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Documentos por Categorías</span></a>
 			</li>
 			<li style="<?php echo getcontrolador("SubCategoria",$controladores) ?>">
-			<a href="index.php?controller=SubCategorias&action=ReporteTotal" target="blank">Documentos por SubCategorías</a>
+			<a href="index.php?controller=SubCategorias&action=ReporteTotal" target="blank"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Documentos por SubCategorías</span></a>
 			</li>
 			<li style="<?php echo getcontrolador("Documentos",$controladores) ?>">
-			<a href="index.php?controller=Documentos&action=BuscaxCarton" >Documentos por Cartón</a>
-			</li>
-			<li role="separator" class="divider"></li>
-			
-			<li style="<?php echo getcontrolador("CartonDocumentos",$controladores) ?>">
-			<a href="index.php?controller=CartonDocumentos&action=ReporteTotal" >Listado de Cartones Registrados</a>
+			<a href="index.php?controller=Documentos&action=BuscaxCarton" ><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Documentos por Cartón</span></a>
 			</li>
 			
-	        <li role="separator" class="divider"></li>
-           <li style="<?php echo getcontrolador("ErroresImportacion",$controladores) ?>">
-           <a href="index.php?controller=ErroresImportacion&action=index" target="blank">Errores de Importación</a>
-		    </li>
 		
           </ul>
         </li>
-        <li class="dropdown">
+        <li class="dropdown" style="<?php echo getcontrolador("MenuUtilitarios",$controladores) ?>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-modal-window" ><?php echo " Utilitarios" ;?> </span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li style="<?php echo getcontrolador("CartonImpreso",$controladores) ?>">
-            <a href="index.php?controller=CartonImpreso&action=index">Impresión de Etiqueta de Cartón</a>
+            <a href="index.php?controller=CartonImpreso&action=index"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Impresión de Etiqueta de Cartón</span></a>
 			</li>
 			<li style="<?php echo getcontrolador("Documentos",$controladores) ?>">
-			<a href="index.php?controller=Documentos&action=ActualizarDocumentos">Actualizar Documentos</a>
+			<a href="index.php?controller=Documentos&action=ActualizarDocumentos"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Actualizar Documentos</span></a>
 			</li>
 		  </ul>
         </li>
@@ -177,9 +147,6 @@ $controladores=$_SESSION['controladores'];
 		    <button type="submit"  name="btn_buscar" class="btn btn-default"><span class="glyphicon glyphicon-search" ></span></button>
             </div>
 			</div> 
-  			
-  		
-  		
 		
         </form>
       
@@ -191,8 +158,4 @@ $controladores=$_SESSION['controladores'];
         
 </div>
 </div>
-
-
-
-
 

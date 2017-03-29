@@ -143,7 +143,11 @@ class DocumentosTipoDocumentosController extends ControladorBase{
 					{
 						$where_9 = " AND documentos_legal.creado BETWEEN '$_fecha_subida_desde' AND '$_fecha_subida_hasta'  ";
 					}
-					
+					if ($_year >0)
+					{
+							
+						$where_11 = "  AND TO_CHAR(documentos_legal.fecha_documentos_legal,'YYYY') = '$_year' ";
+					}
 					
 					$where_to  = $where . $where_1 . $where_2 . $where_3 . $where_4  . $where_8 . $where_9 . $where_10. $where_11. $where_12. $where_13;
 					

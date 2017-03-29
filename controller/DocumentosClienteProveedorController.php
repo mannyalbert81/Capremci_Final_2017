@@ -445,28 +445,26 @@ class DocumentosClienteProveedorController extends ControladorBase{
 	
 							//<th style="color:#456789;font-size:80%;"></th>
 	
-	
-							$html.='<div class="pull-left">';
+							$html.='<div class="pull-left col-lg-2 col-md-2 col-xs-2"   style="vertical-align:midde">';
 							$html.='<span class="form-control"><strong>Registros: </strong>'.$cantidadResult.'</span>';
 							$html.='<input type="hidden" value="'.$cantidadResult.'" id="total_query" name="total_query"/>' ;
-							$html.='</div><br>';
-							$html.='<section style="height:425px; overflow-y:scroll;">';
-							$html.='<table class="table table-hover">';
-							$html.='<thead>';
-							$html.='<tr class="info">';
-							$html.='<th><b>Id</b></th>';
-							$html.='<th>Fecha del Documento</th>';
-							$html.='<th>Categoria</th>';
-							$html.='<th>Subcategoria</th>';
-							$html.='<th>Tipo Documentos</th>';
-							$html.='<th>Cliente/Proveedor</th>';
-							$html.='<th>Carton Documentos</th>';
-							$html.='<th>Numero</th>';
-							$html.='<th>Monto Documento</th>';
-							$html.='<th>Valor Documento</th>';
-							$html.='<th>Fecha de Subida</th>';
-							$html.='<th></th>';
-							$html.='<th></th>';
+							$html.='</div></br>';
+							$html.='<section class="col-lg-12 col-md-10 col-xs-10">';
+							$html.='<table class="table table-hover" >';
+							$html.='<thead style="background: #DBF5F1; text-align:center;">';
+							$html.='<tr class=" col-lg-12 col-md-10 col-xs-10">';
+							$html.='<th  class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;"><b>Id</b></th>';
+							$html.='<th  class="col-lg-1 col-md-1 col-xs-1" style="text-align: left; font-size: 10px;"><b>Fecha del Documento</b></th>';
+							$html.='<th  class="col-lg-1 col-md-1 col-xs-1" style="text-align: center; font-size: 10px;"><b>Categoria</b></th>';
+							$html.='<th  class="col-lg-1 col-md-1 col-xs-1" style="text-align: center; font-size: 10px;"><b>Subcategoria</b></th>';
+							$html.='<th  class="col-lg-1 col-md-1 col-xs-1" style="text-align: center; font-size: 10px;"><b>Tipo Documentos</b></th>';
+							$html.='<th  class="col-lg-1 col-md-1 col-xs-1" style="text-align: center; font-size: 10px;"><b>Cliente/Proveedor</b></th>';
+							$html.='<th  class="col-lg-1 col-md-1 col-xs-1" style="text-align: center; font-size: 10px;"><b>Carton Documentos</b></th>';
+							$html.='<th  class="col-lg-1 col-md-1 col-xs-1" style="text-align: center; font-size: 10px;"><b>Numero</b></th>';
+							$html.='<th  class="col-lg-1 col-md-1 col-xs-1" style="text-align: left; font-size: 10px;"><b>Monto Documento</b></th>';
+							$html.='<th  class="col-lg-1 col-md-1 col-xs-1" style="text-align: left; font-size: 10px;"><b>Valor Documento</b></th>';
+							$html.='<th  class="col-lg-1 col-md-1 col-xs-1" style="text-align: center; font-size: 10px;"><b>Fecha de Subida</b></th>';
+							$html.='<th  class="col-lg-1 col-md-1 col-xs-1" style="text-align: center; font-size: 10px;">Visualizar</th>';
 							$html.='</tr>';
 							$html.='</thead>';
 							$html.='<tbody>';
@@ -475,20 +473,17 @@ class DocumentosClienteProveedorController extends ControladorBase{
 							{
 								//<td style="color:#000000;font-size:80%;"> <?php echo ;</td>
 									
-	
-								$html.='<tr>';
-								$html.='<td style="color:#000000;font-size:80%;">'.$res->id_documentos_legal.'</td>';
-								$html.='<td style="color:#000000;font-size:80%;">'.$res->fecha_documentos_legal.'</td>';
-								$html.='<td style="color:#000000;font-size:80%;">'.$res->nombre_categorias.'</td>';
-								$html.='<td style="color:#000000;font-size:80%;">'.$res->nombre_subcategorias.'</td>';
-								$html.='<td style="color:#000000;font-size:80%;">'.$res->nombre_tipo_documentos.'</td>';
-								$html.='<td style="color:#000000;font-size:80%;">'.$res->nombre_cliente_proveedor.'</td>';
-								$html.='<td style="color:#000000;font-size:80%;">'.$res->numero_carton_documentos.'</td>';
-								$html.='<td style="color:#000000;font-size:80%;">'.$res->numero_credito_documentos_legal.'</td>';
-								$html.='<td style="color:#000000;font-size:80%;">'.$res->monto_documentos_legal.'</td>';
-								$html.='<td style="color:#000000;font-size:80%;">'.$res->valor_documentos_legal.'</td>';
-								$html.='<td style="color:#000000;font-size:80%;">'.$res->creado.'</td>';
-								$html.='<td><div class="right">';
+								$html.='<tr >';
+								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->id_documentos_legal.'</td>';
+								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->fecha_documentos_legal.'</td>';
+								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->nombre_categorias.'</td>';
+								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->nombre_subcategorias.'</td>';
+								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->nombre_tipo_documentos.'</td>';
+								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->nombre_cliente_proveedor.'</td>';
+								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->numero_credito_documentos_legal.'</td>';
+								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->monto_documentos_legal.'</td>';
+								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->valor_documentos_legal.'</td>';
+								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->creado.'</td>';
 								if ($_SESSION["tipo_usuario"]=="usuario_local") {
 									$html.='<a href="'.IP_INT . $res->id_documentos_legal.'" class="btn btn-warning" target="blank">Ver</a>';
 								} else {

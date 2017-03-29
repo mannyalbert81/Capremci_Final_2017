@@ -91,56 +91,57 @@
 		    	</td>
 		    </tr>
 	    </table>
-	   <div id="controlador">
-		   	<div class="pull-left">
+<div id="controlador">
+		   	<div class="pull-left col-lg-2 col-md-2 col-xs-2">
 		  		<span class="form-control"><strong>Registros: </strong><?php echo $cantidadResult; ?></span>
 				<input type="hidden" value="<?php echo $cantidadResult; ?>" id="total_query" name="total_query"/>
 			</div><br>
-			<section style="height:425px; overflow-y:scroll;">
+			<section class="col-lg-12 col-md-10 col-xs-10">
 				<table class="table table-hover">
-					<thead>
-						<tr class="info">
-							<th>Id</th>
-							<th>Fecha del Documento</th>
-							<th>Categorpia</th>
-							<th>Subcategoría</th>
-							<th>Tipo Documentos</th>
-							<th>Cliente/Proveedor</th>
-							<th>Carton Documentos</th>
-							<th>Número</th>
-							<th>Monto Documento</th>
-							<th>Valor Documento</th>
-							<th>Fecha de Subida</th>
-							<th></th>
-							<th></th>
+					<thead style="background: #DBF5F1; text-align:center;">
+						<tr  class=" col-lg-12 col-md-10 col-xs-10">
+							<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;"><b>Id</b></th>
+							<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;"><b>Fecha del Documento</b></th>
+							<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;"><b>Categorpia</b></th>
+							<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;"><b>Subcategoría</b></th>
+							<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;"><b>Tipo Documentos</b></th>
+							<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;"><b>Cliente/Proveedor</b></th>
+							<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;"><b>Carton Documentos</b></th>
+							<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;"><b>Número</b></th>
+							<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;"><b>Monto Documento</b></th>
+							<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;"><b>Valor Documento</b></th>
+							<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;"><b>Fecha de Subida</b></th>
+							<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Visualizar</th>
+							
 						</tr>
+						
 					</thead>
-					<tbody>
+					<tbody style="display: block; height: calc(50vh - 1px); min-height: calc(200px + 1 px); overflow-Y: scroll;">
+		
 		<?php foreach ($resultSet as $res){?>
 									
 						<tr>
-							<td style="color:#000000;font-size:80%;"><?php echo $res->id_documentos_legal; ?></td>
-							<td style="color:#000000;font-size:80%;"><?php echo $res->fecha_documentos_legal; ?></td>
-							<td style="color:#000000;font-size:80%;"><?php echo $res->nombre_categorias; ?></td>
-							<td style="color:#000000;font-size:80%;"><?php echo $res->nombre_subcategorias; ?></td>
-							<td style="color:#000000;font-size:80%;"><?php echo $res->nombre_tipo_documentos; ?></td>
-							<td style="color:#000000;font-size:80%;"><?php echo $res->nombre_cliente_proveedor; ?></td>
-							<td style="color:#000000;font-size:80%;"><?php echo $res->numero_carton_documentos; ?></td>
-							<td style="color:#000000;font-size:80%;"><?php echo $res->numero_credito_documentos_legal; ?></td>
-							<td style="color:#000000;font-size:80%;"><?php echo $res->monto_documentos_legal; ?></td>
-							<td style="color:#000000;font-size:80%;"><?php echo $res->valor_documentos_legal; ?></td>
-							<td style="color:#000000;font-size:80%;"><?php echo $res->creado; ?></td>
-							<td><div class="right">						
+							
+								<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;"><?php echo $res->id_documentos_legal; ?> </td>
+								<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;"><?php echo$res->fecha_documentos_legal;?> </td>
+								<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;"> <?php echo $res->nombre_categorias; ?> </td>
+								<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;"> <?php echo $res->nombre_subcategorias; ?></td>
+								<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;"> <?php echo $res->nombre_tipo_documentos; ?> </td>
+								<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;"> <?php echo $res->nombre_cliente_proveedor; ?></td>
+								<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;"> <?php echo $res->numero_carton_documentos; ?></td>
+								<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;"> <?php echo$res->numero_credito_documentos_legal; ?></td>
+								<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;"> <?php echo$res->monto_documentos_legal; ?></td>
+								<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;"> <?php echo $res->valor_documentos_legal; ?></td>
+								<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;"> <?php echo $res->creado; ?></td>
+								
+								<td><div class="right">						
 							<?php  if ($_SESSION["tipo_usuario"]=="usuario_local") {  ?>
-			            		 <a href=" <?php echo IP_INT . $res->id_documentos_legal; ?>  " class="btn btn-warning" target="blank">Ver</a>
+			            		 <a href=" <?php echo IP_INT . $res->id_documentos_legal; ?>  " class="btn btn-warning" target="blank" style="font-size:65%;">Ver</a>
 			            	<?php } else {?>
-			            		 <a href="<?php echo IP_EXT . $res->id_documentos_legal; ?>  " class="btn btn-warning" target="blank">Ver</a> 
+			            		 <a href="<?php echo IP_EXT . $res->id_documentos_legal; ?>  " class="btn btn-warning" target="blank" style="font-size:65%;">Ver</a> 
 			            	<?php }?>
 								</div></td>
-							<td><div class="right">
-						
-							</div></td>
-						
+							
 		<?php } ?>
 						
 					</tbody>

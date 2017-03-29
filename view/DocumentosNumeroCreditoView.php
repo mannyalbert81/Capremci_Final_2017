@@ -355,7 +355,7 @@
      
       <div class="panel panel-default">
 
-		  <div class="panel-heading"> <strong style="color:#ec971f;"> BUSQUEDA POR NÚMERO DE CRÉDITO </strong>  </div>
+		  <div class="panel-heading"> <strong style="color:#ec971f;"> BÚSQUEDA POR NÚMERO DE CRÉDITO </strong>  </div>
 		  <div class="panel-body">
 		    <?php if ($resultEdit !="" ) { foreach($resultEdit as $resEdit) {?>
 		  	  <p   class="bg-danger" style="text-align: center;" ><strong>ESTAMOS EDITANDO </strong> Los cambios realizados seran guardados en el registro : <strong>   <?php echo $resEdit->id_documentos_legal ?>  </strong> </p>

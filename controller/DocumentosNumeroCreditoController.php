@@ -377,12 +377,12 @@ class DocumentosNumeroCreditoController extends ControladorBase{
 							$html.='<tr class=" col-lg-12 col-md-10 col-xs-10">';
 							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;"><b>Id</b></th>';
 							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Fecha del Documento</th>';
-							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Categoria</th>';
-							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Subcategoria</th>';
+							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Categoría</th>';
+							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Subcategoría</th>';
 							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: center;  font-size: 10px;">Tipo Documentos</th>';
 							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: center;  font-size: 10px;">Cliente/Proveedor</th>';
-							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Carton Documentos</th>';
-							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Numero</th>';
+							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Cartón Documentos</th>';
+							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Número</th>';
 							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Monto Documento</th>';
 							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Valor Documento</th>';
 							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Fecha de Subida</th>';
@@ -398,7 +398,7 @@ class DocumentosNumeroCreditoController extends ControladorBase{
 							
 							foreach ($resultSet as $res)
 							{
-								//<td style="color:#000000;font-size:80%;"> <?php echo ;</td>
+														//<td style="color:#000000;font-size:80%;"> <?php echo ;</td>
 								$html.='<tr >';
 								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->id_documentos_legal.'</td>';
 								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->fecha_documentos_legal.'</td>';

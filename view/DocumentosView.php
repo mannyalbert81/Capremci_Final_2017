@@ -487,7 +487,7 @@
      
       <div class="panel panel-default">
 
-		  <div class="panel-heading"> <strong style="color:#ec971f;"> BUSQUEDA DE DOCUMENTOS </strong>  </div>
+		  <div class="panel-heading"> <strong style="color:#ec971f;"> BÚSQUEDA DE DOCUMENTOS </strong>  </div>
 		  <div class="panel-body">
 		    <?php if ($resultEdit !="" ) { foreach($resultEdit as $resEdit) {?>
 		  	  <p   class="bg-danger" style="text-align: center;" ><strong>ESTAMOS EDITANDO </strong> Los cambios realizados serán guardados en el registro : <strong>   <?php echo $resEdit->id_documentos_legal ?>  </strong> </p>
@@ -508,7 +508,7 @@
 	    		<th class="col-sm-1">Ruc Cliente/Proveedor</th>
 	    		<th class="col-sm-2">Nombre Cliente/Proveedor</th>
 	    		<th class="col-sm-2">Tipo Documento</th>
-	    		<th class="col-sm-2">Número Carton</th>
+	    		<th class="col-sm-2">Número Cartón</th>
 	    		
 	  		</tr>
             <tr>

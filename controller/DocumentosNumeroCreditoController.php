@@ -413,14 +413,15 @@ class DocumentosNumeroCreditoController extends ControladorBase{
 								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->creado.'</td>';
 								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">';
 	
-                                if ($_SESSION["tipo_usuario"]=="usuario_local") {
+							if ($_SESSION["tipo_usuario"]=="usuario_local") {
 									$html.='<a href="'.IP_INT . $res->id_documentos_legal.'" class="btn btn-warning" target="blank" style="font-size:90%;">Ver</a>';
-                                }else {
+								} else {
 									$html.=' <a href="'.IP_EXT . $res->id_documentos_legal.'" class="btn btn-warning" target="blank" style="font-size:90%;">Ver</a>';
 								}
 								$html.='</td>';
 								$html.='</tr>';
 							}
+								
 								
 	
 							

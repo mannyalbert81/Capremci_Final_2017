@@ -392,9 +392,6 @@ class DocumentosNumeroCreditoController extends ControladorBase{
 							$html.='</thead>';
 							$html.='<tbody style="display: block; height: calc(50vh - 1px); min-height: calc(200px + 1 px); overflow-Y: scroll";>';
 	
-								
-							
-							
 							
 							foreach ($resultSet as $res)
 							{

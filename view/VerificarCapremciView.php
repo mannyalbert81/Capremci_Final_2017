@@ -121,7 +121,7 @@
 		 </div>
 		 
 		 <div class="col-lg-3 col-md-3 col-xs-12">
-			  	<p  class="formulario-subtitulo">Provincia:</p>
+			  	<p  class="formulario-subtitulo">Tipo Credito:</p>
 			  	<select name="tipo_credito_capremci" id="tipo_credito_capremci"  class="form-control" >
 			  		<option value=""><?php echo "--TODOS--";  ?> </option>
 					<?php foreach($resultTipCred as $res) {?>

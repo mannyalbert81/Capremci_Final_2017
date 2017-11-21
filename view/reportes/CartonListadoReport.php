@@ -19,7 +19,8 @@ if ($resultRep !="" ) {
 	//$pdf->AddCol('fecha_documentos_legal',19,utf8_decode('Fecha'),'L');
 	$pdf->AddCol('id_carton_documentos',20,utf8_decode('Id'),'L');
 	$pdf->AddCol('numero_carton_documentos',40,utf8_decode('Numero'),'L');
-	$pdf->AddCol('creado',50,'Creado','L');
+	$pdf->AddCol('registros',40,utf8_decode('Archivos'),'L');
+	$pdf->AddCol('paginas',40,utf8_decode('Paginas'),'L');
 	
 	
 	
@@ -35,7 +36,9 @@ if ($resultRep !="" ) {
 	$pdf->Table($resultRep, $prop, $format);
 	
 	$pdf->AddCol('totales',50,utf8_decode(''),'L');
-	$pdf->AddCol('total_cartones',50,utf8_decode('Total Cartones'),'C');
+	//$pdf->AddCol('total_cartones',50,utf8_decode('Total Cartones'),'C');
+	$pdf->AddCol('total_documentos',50,utf8_decode('Total Documentos'),'C');
+	$pdf->AddCol('total_paginas',50,utf8_decode('Total Paginas'),'C');
 	
 	
 	

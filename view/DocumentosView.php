@@ -499,13 +499,12 @@
       <div class="table-responsive">
      
     
-       	<table class="col-sm-12">     	
+       	<table class="table">     	
             	
             <tr>
 	    		<th class="col-sm-2">Nombre Categoría</th>
 	    		<th class="col-sm-2">Nombre SubCategoría</th>
-	    		<th class="col-sm-1">Año</th>
-	    		<th class="col-sm-1">Ruc Cliente/Proveedor</th>
+	    		<th class="col-sm-2">Ruc Cliente/Proveedor</th>
 	    		<th class="col-sm-2">Nombre Cliente/Proveedor</th>
 	    		<th class="col-sm-2">Tipo Documento</th>
 	    		<th class="col-sm-2">Número Cartón</th>
@@ -551,20 +550,7 @@
 					</select>
 		   		</td>
 		
-				<td>	       		
-		          <select name="year" id="year"  class="form-control">
-							<option value="0"  > --TODOS--</option>
-				        <?php ?>
-				        <?php for($i = date ("Y") ; $i > 1899 ; $i --) {?>
-				         	<?php if ($sel_year > 0){?>
-				         			<option value="<?php echo $i; ?>" <?php if ($i == $sel_year) {echo "selected"; }  ?>  ><?php echo $i; ?> </option>
-				         		<?php  } else { ?>
-				         			<option value="<?php echo $i; ?>" ><?php echo $i; ?> </option>
-						    	<?php }  ?>
-						    <?php } ?>
-					   		    
-	     			     		</select>
-		   		</td>
+				
 		
 		   		<td>
 		   		 <?php 
@@ -743,19 +729,32 @@
       
       
             <tr>
+	    		<th class="col-sm-2">Año</th>
+	    		<th class="col-sm-2">Fecha Documento Desde</th>
+	    		<th class="col-sm-2">Fecha Documento Hasta</th>
+	    		<th class="col-sm-2">Fecha Subida Desde</th>
+	    		<th class="col-sm-2">Fecha Subida Hasta</th>
 	    		
-	    		<th>Fecha Documento Desde</th>
-	    		<th>Fecha Documento Hasta</th>
-	    		<th>Fecha Subida Desde</th>
-	    		<th>Fecha Subida Hasta</th>
 	    		
-	    		<th></th>
 	    		
 	  		</tr>
             
             <tr>
             
-            	
+            	<td>	       		
+		          <select name="year" id="year"  class="form-control">
+							<option value="0"  > --TODOS--</option>
+				        <?php ?>
+				        <?php for($i = date ("Y") ; $i > 1899 ; $i --) {?>
+				         	<?php if ($sel_year > 0){?>
+				         			<option value="<?php echo $i; ?>" <?php if ($i == $sel_year) {echo "selected"; }  ?>  ><?php echo $i; ?> </option>
+				         		<?php  } else { ?>
+				         			<option value="<?php echo $i; ?>" ><?php echo $i; ?> </option>
+						    	<?php }  ?>
+						    <?php } ?>
+					   		    
+	     			     		</select>
+		   		</td>
             	<td>
             	
             	  <?php if ($resultEdit !="" ) { foreach($resultEdit as $resEdit) {?>
@@ -842,22 +841,26 @@
 		   			
 		   			                
 				  <?php } ?>
+				  
+				  
+				  
+				  <?php if ($resultEdit !="" ) { ?>
+		  	  			<input type="submit" value="Guardar" id="btnGuardar" name="btnGuardar" class="btn btn-success"/>
+  	                <?php } else {?>
+  	                	<input type="button" value="Buscar" id="btnBuscar" name="btnBuscar" class="btn btn-info"/>
+  	                <?php } ?>
+				  
 		   		</td>
 		   		
 		   		   		
 		   		
 		   		
-		   		<td>  	
-		        	<?php if ($resultEdit !="" ) { ?>
-		  	  			<input type="submit" value="Guardar" id="btnGuardar" name="btnGuardar" class="btn btn-success"/>
-  	                <?php } else {?>
-  	                	<input type="button" value="Buscar" id="btnBuscar" name="btnBuscar" class="btn btn-info"/>
-  	                <?php } ?>
+		   			
 		        	
 		        	
 		        	
 		        	
-				</td>
+		       
 			</tr>
       
       	</table>
@@ -866,7 +869,6 @@
         </div>  
       
 
-     <hr/> 
      
      <!-- paginacion ajax -->
         

@@ -101,16 +101,15 @@ $controladores=$_SESSION['controladores'];
 			<li style="<?php echo getcontrolador("Documentos",$controladores) ?>">
 			<a href="index.php?controller=Documentos&action=BuscaxCarton" ><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Documentos por Cartón</span></a>
 			</li>
-			
+			<li><a href="index.php?controller=CartonDocumentos&action=ReporteTotal" target="blank"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Listado de Cartones Registrados</span></a>
+			</li>
 		
           </ul>
         </li>
         <li class="dropdown" style="<?php echo getcontrolador("MenuUtilitarios",$controladores) ?>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-modal-window" ><?php echo " Utilitarios" ;?> </span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li style="<?php echo getcontrolador("CartonImpreso",$controladores) ?>">
-            <a href="index.php?controller=CartonImpreso&action=index"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Impresión de Etiqueta de Cartón</span></a>
-			</li>
+          
 			<li style="<?php echo getcontrolador("Documentos",$controladores) ?>">
 			<a href="index.php?controller=Documentos&action=ActualizarDocumentos"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Actualizar Documentos</span></a>
 			</li>
@@ -134,7 +133,7 @@ $controladores=$_SESSION['controladores'];
                                 <input type="text" class="form-control" id="criterio_busqueda" name="contenido_busqueda" value=""  placeholder="Texto a Buscar">
             </div>
             </div>
-            <div class="col-xs-12 col-md-2">
+            <div class="col-xs-12 col-md-2" style="margin-left: 17px;">
             <div class="form-group">
                 <select name="criterio_busqueda" id="criterio_busqueda"  class="form-control" >
            		<option value="0"  > --TODOS--</option>
@@ -148,7 +147,7 @@ $controladores=$_SESSION['controladores'];
 						   		
          </div>
 		    </div>
-		    <div class="col-xs-12 col-md-1" style="margin-left: 10px">
+		    <div class="col-xs-12 col-md-1" style="margin-left: 15px">
 		    <button type="submit"  name="btn_buscar" class="btn btn-default"><span class="glyphicon glyphicon-search" ></span></button>
             </div>
 			</div> 

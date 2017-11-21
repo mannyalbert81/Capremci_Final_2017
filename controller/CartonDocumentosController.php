@@ -223,8 +223,7 @@ class CartonDocumentosController extends ControladorBase{
 	
 	}
 	
-
-	public function ReporteTotal(){
+public function ReporteTotal(){
 	
 	
 		//Creamos el objeto usuario
@@ -234,28 +233,28 @@ class CartonDocumentosController extends ControladorBase{
 		$documentos_legal=new DocumentosLegalModel();
 		
 	
-		$columnas = " categorias.nombre_categorias, COUNT(documentos_legal.paginas_documentos_legal) AS lecturas_documentos, SUM(documentos_legal.paginas_documentos_legal)  AS paginas_documentos";
-		$tablas   = " public.categorias, public.subcategorias, public.documentos_legal";
-		$where    = " subcategorias.id_categorias = categorias.id_categorias AND subcategorias.id_subcategorias = documentos_legal.id_subcategorias GROUP BY categorias.nombre_categorias";
-		$id       = "categorias.nombre_categorias";
+		$columnas = " carton_documentos.id_carton_documentos, carton_documentos.numero_carton_documentos, carton_documentos.creado, carton_documentos.modificado, COUNT(documentos_legal.id_documentos_legal) AS registros, SUM(documentos_legal.paginas_documentos_legal) AS paginas";
+		$tablas   = " public.carton_documentos, public.documentos_legal";
+		$where    = " documentos_legal.id_carton_documentos = carton_documentos.id_carton_documentos GROUP BY carton_documentos.id_carton_documentos, carton_documentos.numero_carton_documentos, carton_documentos.creado, carton_documentos.modificado ";
+		$id       = " carton_documentos.id_carton_documentos  ";
+						
 	
-	
-		$columnas2 = " 'TOTALES' AS totales,  SUM(paginas_documentos_legal) AS total_paginas, COUNT(id_documentos_legal) AS total_documentos";
-		$where2 = "id_documentos_legal > 0";
+		$columnas2 = " 'TOTALES' AS totales,  SUM(documentos_legal.paginas_documentos_legal) AS total_paginas, COUNT(documentos_legal.id_documentos_legal) AS total_documentos";
+		$where2 = " documentos_legal.id_carton_documentos = carton_documentos.id_carton_documentos";
 		
 		session_start();
 	
 	
-		if (isset(  $_SESSION['usuario']) )
+		if (isset(  $_SESSION['usuario_usuario']) )
 		{
-			$resultRep = $categorias->getCondicionesPDF($columnas, $tablas, $where, $id);
+			$resultRep = $documentos_legal->getCondicionesPDF($columnas, $tablas, $where, $id);
 
-			$resultRep2 = $documentos_legal->getByPDF($columnas2, $where2);
-			
+		    $resultRep2 = $documentos_legal->getByPDF($columnas2, $tablas, $where2);
+		    //$resultRep2 = "";
 				
 			
 			
-			$this->report("CategoriasDocumentos",array(	"resultRep"=>$resultRep, "resultRep2"=>$resultRep2));
+			$this->report("CartonListado",array(	"resultRep"=>$resultRep, "resultRep2"=>$resultRep2));
 	
 		}
 			

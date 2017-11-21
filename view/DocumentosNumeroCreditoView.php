@@ -367,13 +367,13 @@
       <div class="table-responsive">
      
     
-       	<table class="col-sm-12">     	
+       	<table class="table">     	
             	
             <tr>
-	    		<th class="col-sm-1">Nombre Categoría</th>
-	    		<th class="col-sm-1">Nombre SubCategoría</th>
-	    		<th class="col-sm-1">Año</th>
-	    		<th class="col-sm-1">Número Crédito</th>
+	    		<th class="col-sm-3">Nombre Categoría</th>
+	    		<th class="col-sm-3">Nombre SubCategoría</th>
+	    		<th class="col-sm-3">Año</th>
+	    		<th class="col-sm-3">Número Crédito</th>
 	    		
 	    	
 	  		</tr>
@@ -477,12 +477,12 @@
       
             <tr>
 	    		
-	    		<th>Fecha Documento Desde</th>
-	    		<th>Fecha Documento Hasta</th>
-	    		<th>Fecha Subida Desde</th>
-	    		<th>Fecha Subida Hasta</th>
+	    		<th class="col-sm-3">Fecha Documento Desde</th>
+	    		<th class="col-sm-3">Fecha Documento Hasta</th>
+	    		<th class="col-sm-3">Fecha Subida Desde</th>
+	    		<th class="col-sm-3">Fecha Subida Hasta</th>
 	    		
-	    		<th></th>
+	    		<th class="col-sm-3"></th>
 	    		
 	  		</tr>
             
@@ -546,7 +546,7 @@
       	</div>
         </div>  
         
-     <hr/>  	
+     	
      
      <!-- paginacion ajax -->
         

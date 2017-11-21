@@ -51,7 +51,7 @@
             	</tr>
         		<tr>
 				
-		           <td>	<input type="text" name="id_documentos_legal" value="<?php echo $sel_id_documentos_legal;?> " class="form-control"/> </td>
+		           <td>	<input type="text" name="id_documentos_legal" value="<?php echo $sel_id_documentos_legal;?>" class="form-control"/> </td>
 		           <?php if (!empty($resultSet))  { ?>
 		           		<td> <input type="submit"name="btnBorrar" value="Borrar" class="btn btn-danger"/> </td>
 		           <?php    } else {?>
@@ -83,7 +83,7 @@
              <table class="table">
     	    	<tr>
             		<th style="width: 50%">Carton o Archivador  </th>
-            		<th style="width: 50%">Credito   </th>
+            		<th style="width: 50%">Número Credito / Prestación  </th>
             	</tr>
     	    	
         		<tr>
@@ -100,7 +100,7 @@
             	</tr>
     	    	
         		<tr>
-				   <td>	<input type="text" name="fecha_documentos_legal" value="" class="form-control"/> </td>
+				   <td>	<input type="date" name="fecha_documentos_legal" value="" class="form-control"/> </td>
 		           <td>	 
 						<select name="estado_lecturas" id="estado_lecturas"  class="form-control" >
 	                  <option value="TRUE"  > LEIDO</option>
@@ -114,8 +114,39 @@
            	
 		    </table>  
 			
-
 			<table class="table">
+    	    	<tr>
+            		<th style="width: 50%">Monto </th>
+            		<th style="width: 50%">Tipo Documento</th>
+            	</tr>
+    	    	
+        		<tr>
+				   <td>	<input type="number" name="monto_documentos_legal" value="" class="form-control"/> </td>
+		           <td>	 
+						<select name="id_tipo_documentos" id="id_tipo_documentos"  class="form-control" >
+                    		<option value="0"  > --Seleccione--</option>
+				         	<?php foreach($resultTipoDocumentos as $res) {?>
+								<option value="<?php echo $res->id_tipo_documentos; ?>"><?php echo $res->nombre_tipo_documentos; ?> </option>
+						    <?php } ?>
+					   		    
+	     			    
+					</select>
+				   
+
+
+				   </td>
+	            </tr>
+           	
+		    </table>  
+			
+			
+			
+			
+			
+          <input type="submit" name="btnGuardar" value="Guardar" class="btn btn-success"/>
+		  <hr>
+		  
+			<table class="table" style="visibility:hidden;">
     	    	<tr>
             		<th style="width: 50%">Plazo Meses  </th>
             		<th style="width: 50%">Destino Dinero  </th>
@@ -133,8 +164,7 @@
 
 			
 			
-           <input type="submit" name="btnGuardar" value="Guardar" class="btn btn-success"/>
-		  <hr>
+         
 		  
           </form>
        
@@ -146,25 +176,23 @@
         <section class="col-lg-7 usuario" style="height:600px;overflow-y:scroll;">
         <table class="table table-hover">
 	         <tr>
-	    		<th>Id</th>
-	    		<th>Subcategroria</th>
-	    		<th>Tipo de Documentos</th>
-	    		<th>RUC/CI</th>
-	    		<th>Nombre</th>
-	    		<th>Fecha</th>
+	    		<th style="text-align: left;  font-size: 12px;">Id</th>
+	    		<th style="text-align: left;  font-size: 12px;">Subcategroria</th>
+	    		<th style="text-align: left;  font-size: 12px;">Tipo de Documentos</th>
+	    		<th style="text-align: left;  font-size: 12px;">RUC/CI</th>
+	    		<th style="text-align: left;  font-size: 12px;">Nombre</th>
+	    		<th style="text-align: left;  font-size: 12px;">Fecha</th>
 	    		
 	  		  </tr>
             
 	          <tr>
-	              <td> <?php echo $res->id_documentos_legal; ?>  </td>
-	              <td> <?php echo $res->nombre_subcategorias; ?>  </td>
-		          <td> <?php echo $res->nombre_tipo_documentos; ?>     </td> 
-		          <td> <?php echo $res->ruc_cliente_proveedor; ?>  </td>
-		          <td> <?php echo $res->nombre_cliente_proveedor; ?>  </td>
-		          
-		          <td> <?php echo $res->fecha_documentos_legal; ?>  </td>
-		          
-		   		</tr>
+	              <td style="font-size: 11px;"> <?php echo $res->id_documentos_legal; ?>  </td>
+	              <td style="font-size: 11px;"> <?php echo $res->nombre_subcategorias; ?>  </td>
+		          <td style="font-size: 11px;"> <?php echo $res->nombre_tipo_documentos; ?>     </td> 
+		          <td style="font-size: 11px;"> <?php echo $res->ruc_cliente_proveedor; ?>  </td>
+		          <td style="font-size: 11px;"> <?php echo $res->nombre_cliente_proveedor; ?>  </td>
+		          <td style="font-size: 11px;"> <?php echo date($res->fecha_documentos_legal); ?>  </td>
+		      </tr>
 	      
             
        	  </table>     

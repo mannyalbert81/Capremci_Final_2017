@@ -114,6 +114,11 @@ $controladores=$_SESSION['controladores'];
 			<li style="<?php echo getcontrolador("Documentos",$controladores) ?>">
 			<a href="index.php?controller=Documentos&action=ActualizarDocumentos"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Actualizar Documentos</span></a>
 			</li>
+			
+			<li style="<?php echo getcontrolador("Documentos",$controladores) ?>">
+			<a href="index.php?controller=VerificarCapremci&action=index"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Verificar Capremci</span></a>
+			</li>
+			
 		  </ul>
         </li>
         

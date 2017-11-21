@@ -118,7 +118,7 @@ class DocumentosController extends ControladorBase{
 				    $columnas = "documentos_legal.id_documentos_legal,  documentos_legal.fecha_documentos_legal, categorias.nombre_categorias, subcategorias.nombre_subcategorias, tipo_documentos.nombre_tipo_documentos, cliente_proveedor.nombre_cliente_proveedor, carton_documentos.numero_carton_documentos, documentos_legal.paginas_documentos_legal, documentos_legal.fecha_desde_documentos_legal, documentos_legal.fecha_hasta_documentos_legal, documentos_legal.ramo_documentos_legal, documentos_legal.numero_poliza_documentos_legal, documentos_legal.ciudad_emision_documentos_legal, soat.cierre_ventas_soat,   documentos_legal.creado , documentos_legal.monto_documentos_legal , documentos_legal.numero_credito_documentos_legal, documentos_legal.monto_documentos_legal, documentos_legal.valor_documentos_legal  "; 
 					$tablas   = "public.documentos_legal, public.categorias, public.subcategorias, public.tipo_documentos, public.carton_documentos, public.cliente_proveedor, public.soat";
 					$where    = "categorias.id_categorias = subcategorias.id_categorias AND subcategorias.id_subcategorias = documentos_legal.id_subcategorias AND tipo_documentos.id_tipo_documentos = documentos_legal.id_tipo_documentos AND carton_documentos.id_carton_documentos = documentos_legal.id_carton_documentos AND cliente_proveedor.id_cliente_proveedor = documentos_legal.id_cliente_proveedor   AND documentos_legal.id_soat = soat.id_soat ";
-					$id       = "documentos_legal.fecha_documentos_legal, carton_documentos.numero_carton_documentos";
+					$id       = "documentos_legal.id_documentos_legal";
 						
 					
 					$documentos = new DocumentosLegalModel();
@@ -475,7 +475,7 @@ class DocumentosController extends ControladorBase{
 				    $columnas = "documentos_legal.id_documentos_legal,  documentos_legal.fecha_documentos_legal, categorias.nombre_categorias, subcategorias.nombre_subcategorias, tipo_documentos.nombre_tipo_documentos, cliente_proveedor.nombre_cliente_proveedor, carton_documentos.numero_carton_documentos, documentos_legal.paginas_documentos_legal, documentos_legal.fecha_desde_documentos_legal, documentos_legal.fecha_hasta_documentos_legal, documentos_legal.ramo_documentos_legal, documentos_legal.numero_poliza_documentos_legal, documentos_legal.ciudad_emision_documentos_legal, soat.cierre_ventas_soat,   documentos_legal.creado, documentos_legal.numero_credito_documentos_legal, documentos_legal.monto_documentos_legal, documentos_legal.valor_documentos_legal"; 
 					$tablas   = "public.documentos_legal, public.categorias, public.subcategorias, public.tipo_documentos, public.carton_documentos, public.cliente_proveedor, public.soat";
 					$where    = "categorias.id_categorias = subcategorias.id_categorias AND subcategorias.id_subcategorias = documentos_legal.id_subcategorias AND tipo_documentos.id_tipo_documentos = documentos_legal.id_tipo_documentos AND carton_documentos.id_carton_documentos = documentos_legal.id_carton_documentos AND cliente_proveedor.id_cliente_proveedor = documentos_legal.id_cliente_proveedor   AND documentos_legal.id_soat = soat.id_soat ";
-					$id       = "documentos_legal.fecha_documentos_legal, carton_documentos.numero_carton_documentos";
+					$id       = "documentos_legal.id_documentos_legal";
 					
 					
 									
@@ -556,7 +556,7 @@ class DocumentosController extends ControladorBase{
 						
 							$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
 						
-							$per_page = 50; //la cantidad de registros que desea mostrar
+							$per_page = 10; //la cantidad de registros que desea mostrar
 							$adjacents  = 9; //brecha entre páginas después de varios adyacentes
 							$offset = ($page - 1) * $per_page;
 						
@@ -572,50 +572,48 @@ class DocumentosController extends ControladorBase{
 							if ($cantidadResult>0)
 							{
 						
-								//<th style="color:#456789;font-size:80%;"></th>
-								$html.='<div class="pull-left col-lg-2 col-md-2 col-xs-2"   style="vertical-align:midde">';
+								
+								$html.='<div class="pull-left">';
 								$html.='<span class="form-control"><strong>Registros: </strong>'.$cantidadResult.'</span>';
 								$html.='<input type="hidden" value="'.$cantidadResult.'" id="total_query" name="total_query"/>' ;
 								$html.='</div><br>';
-								$html.='<section class="col-lg-12 col-md-10 col-xs-10">';
+								$html.='<section style="height:700px;  overflow-y:auto;">';
 								$html.='<table class="table table-hover">';
-								$html.='<thead style="background: #DBF5F1; text-align:center;">';
-								$html.='<tr class=" col-lg-12 col-md-10 col-xs-10">';
-								$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;"><b>Id</b></th>';
-								$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Fecha del Documento</th>';
-								$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Categoría</th>';
-								$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Subcategoría</th>';
-								$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: center;  font-size: 10px;">Tipo Documentos</th>';
-								$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: center;  font-size: 10px;">Cliente/Proveedor</th>';
-								$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Cartón Documentos</th>';
-								$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Número</th>';
-								$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Monto Documento</th>';
-								$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Valor Documento</th>';
-								$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Fecha de Subida</th>';
-								$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Visualizar</th>';
+								$html.='<thead>';
+								$html.='<tr class="info">';
+								$html.='<th style="text-align: left;  font-size: 10px;"><b>Id</b></th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Fecha del Documento</th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Categoría</th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Subcategoría</th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Tipo Documentos</th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Cliente/Proveedor</th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Cartón Documentos</th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Número</th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Monto Documento</th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Valor Documento</th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Fecha de Subida</th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Visualizar</th>';
 								$html.='</tr>';
 								$html.='</thead>';
-								$html.='<tbody style="display: block; height: calc(50vh - 1px); min-height: calc(200px + 1 px); overflow-Y: scroll";>';
+								$html.='<tbody>';
 														
+						
 						
 								foreach ($resultSet as $res)
 								{
-									//<td style="color:#000000;font-size:80%;"> <?php echo ;</td>
-										
-									//<td style="color:#000000;font-size:80%;"> <?php echo ;</td>
 									$html.='<tr >';
-									$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->id_documentos_legal.'</td>';
-									$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->fecha_documentos_legal.'</td>';
-									$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->nombre_categorias.'</td>';
-									$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->nombre_subcategorias.'</td>';
-									$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->nombre_tipo_documentos.'</td>';
-									$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->nombre_cliente_proveedor.'</td>';
-									$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->numero_carton_documentos.'</td>';
-									$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->numero_credito_documentos_legal.'</td>';
-									$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->monto_documentos_legal.'</td>';
-									$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->valor_documentos_legal.'</td>';
-									$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->creado.'</td>';
-									$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">';
+									$html.='<td style="font-size: 9px;">'.$res->id_documentos_legal.'</td>';
+									$html.='<td style="font-size: 9px;">'.date($res->fecha_documentos_legal).'</td>';
+									$html.='<td style="font-size: 9px;">'.$res->nombre_categorias.'</td>';
+									$html.='<td style="font-size: 9px;">'.$res->nombre_subcategorias.'</td>';
+									$html.='<td style="font-size: 9px;">'.$res->nombre_tipo_documentos.'</td>';
+									$html.='<td style="font-size: 9px;">'.$res->nombre_cliente_proveedor.'</td>';
+									$html.='<td style="font-size: 9px;">'.$res->numero_carton_documentos.'</td>';
+									$html.='<td style="font-size: 9px;">'.$res->numero_credito_documentos_legal.'</td>';
+									$html.='<td style="font-size: 9px;">'.$res->monto_documentos_legal.'</td>';
+									$html.='<td style="font-size: 9px;">'.$res->valor_documentos_legal.'</td>';
+									$html.='<td style="font-size: 9px;">'.date($res->creado).'</td>';
+									$html.='<td style="font-size: 9px;">';
 									
 									if ($_SESSION["tipo_usuario"]=="usuario_local") {
 										$html.='<a href="'.IP_INT . $res->id_documentos_legal.'" class="btn btn-warning" target="blank" style="font-size:90%;">Ver</a>';
@@ -632,7 +630,7 @@ class DocumentosController extends ControladorBase{
 								$html.='<div class="table-pagination pull-right">';
 								$html.=''. $this->paginate("index.php", $page, $total_pages, $adjacents).'';
 								$html.='</div>';
-								$html.='</section>';
+								
 						
 						
 							}else{
@@ -654,7 +652,7 @@ class DocumentosController extends ControladorBase{
 							
 							$page = 1;
 							
-							$per_page = 50; //la cantidad de registros que desea mostrar
+							$per_page = 15; //la cantidad de registros que desea mostrar
 							$adjacents  = 9; //brecha entre páginas después de varios adyacentes
 							$offset = ($page - 1) * $per_page;
 							
@@ -835,12 +833,18 @@ class DocumentosController extends ControladorBase{
 	
 	public function ActualizarDocumentos(){
 	
+	session_start();
 		$documentos_legal=new DocumentosLegalModel();
 		$cliente_proveedor = new ClienteProveedorModel();
 		$carton_documentos = new CartonDocumentosModel();
 		$lecturas = new LecturasModel();
-	
+	    $tipo_documentos = new TipoDocumentosModel();
 		$archivos_pdf = new ArchivosPdfModel();
+	
+	
+	           
+		$resultTipoDocumentos=$tipo_documentos->getAll("nombre_tipo_documentos");
+	   
 	
 	
 	
@@ -1049,6 +1053,45 @@ class DocumentosController extends ControladorBase{
 		}
 	
 	
+	if (isset ($_POST["monto_documentos_legal"]) && isset ($_POST["btnGuardar"])   )
+		{
+			$_monto_documentos_legal =  rtrim($_POST["monto_documentos_legal"]);
+			$_id_documentos_legal = rtrim($_POST["id_documentos_legal"]);
+		
+			if (strlen($_monto_documentos_legal) > 0)
+			{
+
+					$colval = "monto_documentos_legal = '$_monto_documentos_legal'  ";
+					$tabla  = "documentos_legal";
+					$where  = "id_documentos_legal = '$_id_documentos_legal'  ";
+		
+					$resultado = $documentos_legal->UpdateBy($colval ,$tabla , $where);
+				
+					
+			}
+		}
+	
+	
+		if (isset ($_POST["id_tipo_documentos"]) && isset ($_POST["btnGuardar"])   )
+		{
+			$_id_tipo_documentos =  rtrim($_POST["id_tipo_documentos"]);
+			$_id_documentos_legal = rtrim($_POST["id_documentos_legal"]);
+		
+			if (strlen($_id_tipo_documentos) > 0)
+			{
+
+					$colval = "id_tipo_documentos = '$_id_tipo_documentos'  ";
+					$tabla  = "documentos_legal";
+					$where  = "id_documentos_legal = '$_id_documentos_legal'  ";
+		
+					$resultado = $documentos_legal->UpdateBy($colval ,$tabla , $where);
+				
+					
+			}
+		}
+	
+	
+	
 	
 		if (isset ($_POST["id_documentos_legal"]) && isset ($_POST["btnBorrar"])   )
 		{
@@ -1080,7 +1123,7 @@ class DocumentosController extends ControladorBase{
 	
 	
 		$this->view("ActualizarDocumentos",array(
-				"resultSet"=>$resultSet
+				"resultSet"=>$resultSet, "resultTipoDocumentos"=>$resultTipoDocumentos
 		));
 	
 	
@@ -1115,7 +1158,7 @@ class DocumentosController extends ControladorBase{
 				    $columnas = "documentos_legal.id_documentos_legal,  documentos_legal.fecha_documentos_legal, categorias.nombre_categorias, subcategorias.nombre_subcategorias, tipo_documentos.nombre_tipo_documentos, cliente_proveedor.nombre_cliente_proveedor, carton_documentos.numero_carton_documentos, documentos_legal.paginas_documentos_legal, documentos_legal.fecha_desde_documentos_legal, documentos_legal.fecha_hasta_documentos_legal, documentos_legal.ramo_documentos_legal, documentos_legal.numero_poliza_documentos_legal, documentos_legal.ciudad_emision_documentos_legal, soat.cierre_ventas_soat,   documentos_legal.creado , documentos_legal.monto_documentos_legal , documentos_legal.numero_credito_documentos_legal, documentos_legal.monto_documentos_legal, documentos_legal.valor_documentos_legal  "; 
 					$tablas   = "public.documentos_legal, public.categorias, public.subcategorias, public.tipo_documentos, public.carton_documentos, public.cliente_proveedor, public.soat";
 					$where    = "categorias.id_categorias = subcategorias.id_categorias AND subcategorias.id_subcategorias = documentos_legal.id_subcategorias AND tipo_documentos.id_tipo_documentos = documentos_legal.id_tipo_documentos AND carton_documentos.id_carton_documentos = documentos_legal.id_carton_documentos AND cliente_proveedor.id_cliente_proveedor = documentos_legal.id_cliente_proveedor   AND documentos_legal.id_soat = soat.id_soat ";
-					$id       = "documentos_legal.fecha_documentos_legal, carton_documentos.numero_carton_documentos";
+					$id       = "documentos_legal.id_documentos_legal";
 						
 					
 					$documentos = new DocumentosLegalModel();
@@ -1187,7 +1230,7 @@ class DocumentosController extends ControladorBase{
 					
 					if ($_fecha_documento_desde != "" && $_fecha_documento_hasta != "")
 					{
-						$where_8 = " AND documentos_legal.fecha_documentos_legal BETWEEN '$_fecha_documento_desde' AND '$_fecha_documento_hasta'  ";
+						$where_8 = " AND date(documentos_legal.fecha_documentos_legal) BETWEEN '$_fecha_documento_desde' AND '$_fecha_documento_hasta'  ";
 					}
 		
 					if ($_fecha_subida_desde != "" && $_fecha_subida_hasta != "")
@@ -1197,7 +1240,7 @@ class DocumentosController extends ControladorBase{
 					
 					if ($_fecha_poliza_desde != "" && $_fecha_poliza_hasta != "")
 					{
-						$where_10 = " AND documentos_legal.fecha_desde_documentos_legal > '$_fecha_poliza_desde' AND documentos_legal.fecha_desde_documentos_legal < '$_fecha_poliza_hasta'  ";
+						$where_10 = " AND date(documentos_legal.fecha_desde_documentos_legal) > '$_fecha_poliza_desde' AND date(documentos_legal.fecha_desde_documentos_legal) < '$_fecha_poliza_hasta'  ";
 					}
 					
 					if ($_year >0)
@@ -1216,7 +1259,7 @@ class DocumentosController extends ControladorBase{
 					{
 						$fecha_desde = $_year ."-01-01";
 						$fecha_hasta = $_year ."-12-31";
-						$where_13 = "  AND documentos_legal.fecha_documentos_legal BETWEEN '$fecha_desde' AND  '$fecha_hasta'  "  ;
+						$where_13 = "  AND date(documentos_legal.fecha_documentos_legal) BETWEEN '$fecha_desde' AND  '$fecha_hasta'  "  ;
 										
 					}
 						
@@ -1240,7 +1283,7 @@ class DocumentosController extends ControladorBase{
 	
 						$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
 	
-						$per_page = 50; //la cantidad de registros que desea mostrar
+						$per_page = 15; //la cantidad de registros que desea mostrar
 						$adjacents  = 9; //brecha entre páginas después de varios adyacentes
 						$offset = ($page - 1) * $per_page;
 	
@@ -1254,79 +1297,77 @@ class DocumentosController extends ControladorBase{
 						$total_pages = ceil($cantidadResult/$per_page);
 	
 						if ($cantidadResult>0)
-						{
-	
-							//<th style="color:#456789;font-size:80%;"></th>
-	
-
-							//<th style="color:#456789;font-size:80%;"></th>
-							$html.='<div class="pull-left col-lg-2 col-md-2 col-xs-2"   style="vertical-align:midde">';
-							$html.='<span class="form-control"><strong>Registros: </strong>'.$cantidadResult.'</span>';
-							$html.='<input type="hidden" value="'.$cantidadResult.'" id="total_query" name="total_query"/>' ;
-							$html.='</div><br>';
-							$html.='<section class="col-lg-12 col-md-10 col-xs-10">';
-							$html.='<table class="table table-hover">';
-							$html.='<thead style="background: #DBF5F1; text-align:center;">';
-							$html.='<tr class=" col-lg-12 col-md-10 col-xs-10">';
-							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;"><b>Id</b></th>';
-							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Fecha del Documento</th>';
-							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Categoria</th>';
-							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Subcategoria</th>';
-							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: center;  font-size: 10px;">Tipo Documentos</th>';
-							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: center;  font-size: 10px;">Cliente/Proveedor</th>';
-							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Carton Documentos</th>';
-							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Numero</th>';
-							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Monto Documento</th>';
-							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Valor Documento</th>';
-							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Fecha de Subida</th>';
-							$html.='<th class="col-lg-1 col-md-1 col-xs-1" style="text-align: left;  font-size: 10px;">Visualizar</th>';
-							$html.='</tr>';
-							$html.='</thead>';
-							$html.='<tbody style="display: block; height: calc(50vh - 1px); min-height: calc(200px + 1 px); overflow-Y: scroll";>';
-								
-						foreach ($resultSet as $res)
 							{
-														//<td style="color:#000000;font-size:80%;"> <?php echo ;</td>
-								$html.='<tr >';
-								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->id_documentos_legal.'</td>';
-								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->fecha_documentos_legal.'</td>';
-								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->nombre_categorias.'</td>';
-								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->nombre_subcategorias.'</td>';
-								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->nombre_tipo_documentos.'</td>';
-								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->nombre_cliente_proveedor.'</td>';
-								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->numero_carton_documentos.'</td>';
-								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->numero_credito_documentos_legal.'</td>';
-								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->monto_documentos_legal.'</td>';
-								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->valor_documentos_legal.'</td>';
-								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">'.$res->creado.'</td>';
-								$html.='<td class="col-lg-1 col-md-1 col-xs-1" style="font-size: 9px;">';
-	
-							if ($_SESSION["tipo_usuario"]=="usuario_local") {
-									$html.='<a href="'.IP_INT . $res->id_documentos_legal.'" class="btn btn-warning" target="blank" style="font-size:90%;">Ver</a>';
-								} else {
-									$html.=' <a href="'.IP_EXT . $res->id_documentos_legal.'" class="btn btn-warning" target="blank" style="font-size:90%;">Ver</a>';
-								}
-								$html.='</td>';
+						
+								
+								$html.='<div class="pull-left">';
+								$html.='<span class="form-control"><strong>Registros: </strong>'.$cantidadResult.'</span>';
+								$html.='<input type="hidden" value="'.$cantidadResult.'" id="total_query" name="total_query"/>' ;
+								$html.='</div><br>';
+								$html.='<section style="height:700px;  overflow-y:auto;">';
+								$html.='<table class="table table-hover">';
+								$html.='<thead>';
+								$html.='<tr class="info">';
+								$html.='<th style="text-align: left;  font-size: 10px;"><b>Id</b></th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Fecha del Documento</th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Categoría</th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Subcategoría</th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Tipo Documentos</th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Cliente/Proveedor</th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Cartón Documentos</th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Número</th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Monto Documento</th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Valor Documento</th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Fecha de Subida</th>';
+								$html.='<th style="text-align: left;  font-size: 10px;">Visualizar</th>';
 								$html.='</tr>';
+								$html.='</thead>';
+								$html.='<tbody>';
+														
+						
+						
+								foreach ($resultSet as $res)
+								{
+									$html.='<tr >';
+									$html.='<td style="font-size: 9px;">'.$res->id_documentos_legal.'</td>';
+									$html.='<td style="font-size: 9px;">'.date($res->fecha_documentos_legal).'</td>';
+									$html.='<td style="font-size: 9px;">'.$res->nombre_categorias.'</td>';
+									$html.='<td style="font-size: 9px;">'.$res->nombre_subcategorias.'</td>';
+									$html.='<td style="font-size: 9px;">'.$res->nombre_tipo_documentos.'</td>';
+									$html.='<td style="font-size: 9px;">'.$res->nombre_cliente_proveedor.'</td>';
+									$html.='<td style="font-size: 9px;">'.$res->numero_carton_documentos.'</td>';
+									$html.='<td style="font-size: 9px;">'.$res->numero_credito_documentos_legal.'</td>';
+									$html.='<td style="font-size: 9px;">'.$res->monto_documentos_legal.'</td>';
+									$html.='<td style="font-size: 9px;">'.$res->valor_documentos_legal.'</td>';
+									$html.='<td style="font-size: 9px;">'.date($res->creado).'</td>';
+									$html.='<td style="font-size: 9px;">';
+									
+									if ($_SESSION["tipo_usuario"]=="usuario_local") {
+										$html.='<a href="'.IP_INT . $res->id_documentos_legal.'" class="btn btn-warning" target="blank" style="font-size:90%;">Ver</a>';
+									} else {
+										$html.=' <a href="'.IP_EXT . $res->id_documentos_legal.'" class="btn btn-warning" target="blank" style="font-size:90%;">Ver</a>';
+									}
+									$html.='</td>';
+									$html.='</tr>';
+									}
+									
+								$html.='</tbody>';
+								$html.='</table>';
+								$html.='</section>';
+								$html.='<div class="table-pagination pull-right">';
+								$html.=''. $this->paginate("index.php", $page, $total_pages, $adjacents).'';
+								$html.='</div>';
+								
+						
+						
+							}else{
+						
+								$html.='<div class="alert alert-warning alert-dismissable">';
+								$html.='<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+								$html.='<h4>Aviso!!!</h4> No hay datos para mostrar';
+								$html.='</div>';
+						
 							}
-	
-							$html.='</tbody>';
-							$html.='</table>';
-							$html.='</section>';
-							$html.='<div class="table-pagination pull-right">';
-							$html.=''. $this->paginate("index.php", $page, $total_pages, $adjacents).'';
-							$html.='</div>';
-							$html.='</section>';
-	
-	
-						}else{
-	
-							$html.='<div class="alert alert-warning alert-dismissable">';
-							$html.='<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
-							$html.='<h4>Aviso!!!</h4> No hay datos para mostrar';
-							$html.='</div>';
-	
-						}
 	
 						echo $html;
 							
